@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  font-family:
+    Oswald,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    roboto,
+    Helvetica Neue,
+    Noto Sans,
+    Liberation Sans,
+    arial,
+    sans-serif,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji;
+}
+
+
+@media (min-width: 768px) {
+    .md\:grid-areas-layout {
+      grid-template-areas:
+        "a a b"
+        "c d d"
+        "c e f";
+      grid-template-rows: 300px 200px 250px;
+    }
+  
+    .md\:a { grid-area: a; }
+    .md\:b { grid-area: b; }
+    .md\:c { grid-area: c; }
+    .md\:d { grid-area: d; }
+    .md\:e { grid-area: e; }
+    .md\:f { grid-area: f; }
+  }
+  

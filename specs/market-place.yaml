@@ -1,0 +1,74 @@
+openapi: 3.0.3
+info:
+  title: MARKET-PLACE Rest API
+  description: REST API endpoints for
+  version: 2024-W28
+servers:
+  - url: 'https'
+  - url: 'http'
+paths:
+  /account:
+    post:
+      tags:
+        - Account
+      summary: Register a new Account
+      description: Register a new Account
+      operationId: registerAccount
+      requestBody:
+        required: true
+        description: data needed to create the new account
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountRegistrationDTO'
+      responses:
+        201:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: string
+                description: secret code
+        409:
+          description: MARKET_PLACE-3001
+  /account/{username}:
+    get:
+      tags:
+        - Account
+      summary: Get Account by username
+      description: fetch account by the username of the owner
+      operationId: getAccountByUsername
+      parameters:
+        - name: username
+          description: the
+          in: path
+          required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountDTO'
+
+components:
+  schemas:
+    AccountRegistrationDTO:
+      type: object
+      properties:
+        username:
+          type: string
+          description: account username
+        password:
+          type: string
+          description: account password
+
+    AccountDTO:
+      type: object
+      properties:
+        isActive:
+          type: boolean
+        id:
+          type: string
+          format: uuid
+
